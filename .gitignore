@@ -10,3 +10,4 @@ cdk.out
 !process-env.d.ts
 cdk.context.json
 .env
+.aider*
