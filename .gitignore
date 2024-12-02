@@ -9,3 +9,4 @@ cdk.out
 *.DS_Store
 !process-env.d.ts
 cdk.context.json
+.env
