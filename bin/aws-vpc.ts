@@ -18,8 +18,8 @@ const appAspects = Aspects.of(app);
 
 // check APP_NAME variable
 checkEnvVariables('APP_NAME',
-    'CDK_DEPLOY_REGIONS',
-    'ENVIRONMENTS',
+    'CDK_DEPLOY_REGION',
+    'ENVIRONMENT',
     'VPC_SUBNET_TYPE',
     'NAT_GATEWAYS',
     'VPC_CIDR',
@@ -30,10 +30,10 @@ checkEnvVariables('APP_NAME',
 const { CDK_DEFAULT_ACCOUNT: account } = process.env;
 
 const cdkRegion = process.env.CDK_DEPLOY_REGION;
-const deployEnvironment = process.env.ENVIRONMENT;
+const deployEnvironment = process.env.ENVIRONMENT!;
 
 const appName = process.env.APP_NAME!;
-const owner = process.env.OWNER;
+const owner = process.env.OWNER!;
 
 // check best practices based on AWS Solutions Security Matrix
 appAspects.add(new AwsSolutionsChecks());
