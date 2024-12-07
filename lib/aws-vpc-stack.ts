@@ -26,7 +26,7 @@ export class AwsVpcStack extends cdk.Stack {
     // print out VPC CIDR
     console.log(`VPC CIDR: ${props.VPC_CIDR}`);
 
-    const cxVpc = new ec2.Vpc(this, vpcName, {
+    const owVpc = new ec2.Vpc(this, vpcName, {
             ipAddresses: ec2.IpAddresses.cidr(props.VPC_CIDR), //IPs in Range - 65,536
             natGateways: props.NAT_GATEWAYS, // Isolated Subnets do not route traffic to the Internet (in this VPC), and as such, do not require NAT gateways.
             maxAzs: props.VPC_MAX_AZS, // for high availability
@@ -45,16 +45,17 @@ export class AwsVpcStack extends cdk.Stack {
             enableDnsHostnames: true,
             enableDnsSupport: true,
     });
+    owVpc.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
 
     // apply removal policy to all vpc and subnet resources
-    cxVpc.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
-    for (const subnet of cxVpc.privateSubnets) {
+    owVpc.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+    for (const subnet of owVpc.privateSubnets) {
         subnet.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
     }
-    for (const subnet of cxVpc.isolatedSubnets) {
+    for (const subnet of owVpc.isolatedSubnets) {
         subnet.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
     }
-    for (const subnet of cxVpc.publicSubnets) {
+    for (const subnet of owVpc.publicSubnets) {
         subnet.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
     }
 
@@ -101,9 +102,16 @@ export class AwsVpcStack extends cdk.Stack {
     });
 
     new ec2.FlowLog(this, `${props.resourcePrefix}-VpcFlowLog`, {
-        resourceType: ec2.FlowLogResourceType.fromVpc(cxVpc),
+        resourceType: ec2.FlowLogResourceType.fromVpc(owVpc),
         destination: ec2.FlowLogDestination.toCloudWatchLogs(vpcFlowLogGroup, vpcFlowLogRole),
         trafficType: ec2.FlowLogTrafficType.ALL,
+    });
+
+    // export vpc id
+    new cdk.CfnOutput(this, `${props.resourcePrefix}-VPC-ID`, {
+        value: owVpc.vpcId,
+        description: 'VPC ID',
+        exportName: `${props.resourcePrefix}-VPC`,
     });
   }
 }
