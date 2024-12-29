@@ -1,3 +1,13 @@
+## 2024-12-29 [*](https://github.com/OpenWorkspace-o1/aws-vpc/pull/19)
+
+### Changed
+- Updated `aws-cdk` and `aws-cdk-lib` dependencies from `2.173.2` to `2.173.4`
+- Updated `OWNER` field in environment configuration files from `OPENWORKSPACE` to `OpenWorkspace-o1`
+
+### Updated
+- Incremented project version from `0.1.3` to `0.1.4`
+- Updated `peerDependencies` for `aws-cdk` and `aws-cdk-lib` to version `2.173.4
+
 ## 2024-12-07
 
 ### Changed
