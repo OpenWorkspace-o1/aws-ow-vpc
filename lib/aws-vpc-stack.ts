@@ -26,6 +26,8 @@ export class AwsVpcStack extends cdk.Stack {
     // print out VPC CIDR
     console.log(`VPC CIDR: ${props.VPC_CIDR}`);
 
+    const removalPolicy = props.deployEnvironment === 'production' ? cdk.RemovalPolicy.RETAIN : cdk.RemovalPolicy.DESTROY;
+
     const owVpc = new ec2.Vpc(this, vpcName, {
             ipAddresses: ec2.IpAddresses.cidr(props.VPC_CIDR), //IPs in Range - 65,536
             natGateways: props.NAT_GATEWAYS, // Isolated Subnets do not route traffic to the Internet (in this VPC), and as such, do not require NAT gateways.
@@ -45,18 +47,18 @@ export class AwsVpcStack extends cdk.Stack {
             enableDnsHostnames: true,
             enableDnsSupport: true,
     });
-    owVpc.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+    owVpc.applyRemovalPolicy(removalPolicy);
 
     // apply removal policy to all vpc and subnet resources
-    owVpc.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+    owVpc.applyRemovalPolicy(removalPolicy);
     for (const subnet of owVpc.privateSubnets) {
-        subnet.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+        subnet.applyRemovalPolicy(removalPolicy);
     }
     for (const subnet of owVpc.isolatedSubnets) {
-        subnet.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+        subnet.applyRemovalPolicy(removalPolicy);
     }
     for (const subnet of owVpc.publicSubnets) {
-        subnet.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+        subnet.applyRemovalPolicy(removalPolicy);
     }
 
     const vpcFlowLogRole = new iam.Role(this, `${props.resourcePrefix}-RoleVpcFlowLogs`, {
@@ -93,12 +95,12 @@ export class AwsVpcStack extends cdk.Stack {
 
     const vpcFlowLogGroup = new logs.LogGroup(this, `${props.resourcePrefix}-VpcFlowLogGroup`, {
         retention: logs.RetentionDays.ONE_MONTH,
-        removalPolicy: cdk.RemovalPolicy.DESTROY,
+        removalPolicy: removalPolicy,
     });
 
     new logs.LogStream(this, `${props.resourcePrefix}-VpcFlowLogStream`, {
         logGroup: vpcFlowLogGroup,
-        removalPolicy: cdk.RemovalPolicy.DESTROY,
+        removalPolicy: removalPolicy,
     });
 
     new ec2.FlowLog(this, `${props.resourcePrefix}-VpcFlowLog`, {

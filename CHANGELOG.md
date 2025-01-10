@@ -1,3 +1,13 @@
+## 2025-01-10 [*](https://github.com/OpenWorkspace-o1/aws-vpc/pull/23)
+
+### Changed
+- Unified `removalPolicy` logic in `AwsVpcStack` for consistent behavior across environments.
+- Updated `aws-cdk` and `aws-cdk-lib` dependencies from `2.174.0` to `2.175.0`.
+- Updated `typescript` dependency from `~5.7.2` to `~5.7.3`.
+
+### Updated
+- Updated `peerDependencies` for `aws-cdk` and `aws-cdk-lib` to version `2.175.0`.
+
 ## 2024-12-29 [*](https://github.com/OpenWorkspace-o1/aws-vpc/pull/19)
 
 ### Changed
