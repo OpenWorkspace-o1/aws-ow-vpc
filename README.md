@@ -49,13 +49,14 @@ cp .env.example .env
 ```
 
 Edit the `.env` file with your desired configuration:
-- APP_NAME: Your application name
-- CDK_DEPLOY_REGION: AWS region for deployment
-- ENVIRONMENT: development/staging/production
-- VPC_SUBNET_TYPE: PRIVATE_ISOLATED or PRIVATE_WITH_EGRESS
-- NAT_GATEWAYS: Number of NAT gateways
-- VPC_CIDR: VPC CIDR range
-- VPC_MAX_AZS: Maximum number of Availability Zones
+
+- `APP_NAME`: Your application name
+- `CDK_DEPLOY_REGION`: AWS region for deployment
+- `ENVIRONMENT`: development/staging/production
+- `VPC_SUBNET_TYPE`: PRIVATE_ISOLATED or PRIVATE_WITH_EGRESS
+- `NAT_GATEWAYS`: Number of NAT gateways
+- `VPC_CIDR`: VPC CIDR range
+- `VPC_MAX_AZS`: Maximum number of Availability Zones
 
 ### 5. Deploy Infrastructure
 
@@ -69,8 +70,8 @@ cdk deploy
 
 ## Available VPC Configurations
 
-- PRIVATE_ISOLATED: VPC with private subnets only
-- PRIVATE_WITH_EGRESS: VPC with private subnets and NAT Gateways for internet access
+- `PRIVATE_ISOLATED`: VPC with private subnets only
+- `PRIVATE_WITH_EGRESS`: VPC with private subnets and NAT Gateways for internet access
 
 ## Useful Commands
 
