@@ -1,3 +1,12 @@
+## 2025-01-11 [*](https://github.com/OpenWorkspace-o1/aws-vpc/pull/27)
+
+### Changed
+- Updated `aws-cdk` and `aws-cdk-lib` dependencies from `2.175.0` to `2.175.1`.
+
+### Updated
+- Updated `peerDependencies` for `aws-cdk` and `aws-cdk-lib` to version `2.175.1`.
+- Incremented project version from `0.1.5` to `0.1.6`.
+
 ## 2025-01-10 [*](https://github.com/OpenWorkspace-o1/aws-vpc/pull/23)
 
 ### Changed
