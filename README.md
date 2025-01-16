@@ -53,7 +53,7 @@ Edit the `.env` file with your desired configuration:
 - `APP_NAME`: Your application name
 - `CDK_DEPLOY_REGION`: AWS region for deployment
 - `ENVIRONMENT`: development/staging/production
-- `VPC_SUBNET_TYPE`: PRIVATE_ISOLATED or PRIVATE_WITH_EGRESS
+- `VPC_SUBNET_TYPE`: `PRIVATE_ISOLATED` or `PRIVATE_WITH_EGRESS`
 - `NAT_GATEWAYS`: Number of NAT gateways
 - `VPC_CIDR`: VPC CIDR range
 - `VPC_MAX_AZS`: Maximum number of Availability Zones

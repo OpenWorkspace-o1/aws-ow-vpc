@@ -1,3 +1,13 @@
+## 2025-01-16 [PR#29](https://github.com/OpenWorkspace-o1/aws-vpc/pull/29)
+
+### Changed
+- Updated `.env.production` to use `PRIVATE_WITH_EGRESS` subnet type and increased `NAT_GATEWAYS` to `3`.
+- Upgraded `aws-cdk` and `aws-cdk-lib` dependencies to version `2.176.0`.
+- Updated `@types/node` dependency to version `22.10.7`.
+
+### Updated
+- Bumped package version to `0.1.7`.
+
 ## 2025-01-11 [*](https://github.com/OpenWorkspace-o1/aws-vpc/pull/27)
 
 ### Changed
