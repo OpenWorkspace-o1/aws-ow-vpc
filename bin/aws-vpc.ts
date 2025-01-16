@@ -60,7 +60,7 @@ const stackProps: AwsVpcStackProps = {
 };
 new AwsVpcStack(app, `AwsVpcStack`, {
     ...stackProps,
-    stackName: `${appName}-${deployEnvironment}-${cdkRegion}-AwsVpcStack`,
+    stackName: `${deployEnvironment}-AwsVpcStack`,
     description: `AwsVpcStack for ${appName} in ${cdkRegion} ${deployEnvironment}.`,
 });
 
