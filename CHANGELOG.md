@@ -1,3 +1,8 @@
+## 2025-01-17 [PR#33](https://github.com/OpenWorkspace-o1/aws-vpc/pull/33)
+
+### Changed
+- Updated stack name and identifier to include `owner` for better identification, following the format `${deployEnvironment}-${owner}-AwsVpcStack`.
+
 ## 2025-01-16 [PR#29](https://github.com/OpenWorkspace-o1/aws-vpc/pull/29)
 
 ### Changed
