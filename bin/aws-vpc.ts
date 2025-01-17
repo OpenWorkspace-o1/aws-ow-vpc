@@ -58,9 +58,9 @@ const stackProps: AwsVpcStackProps = {
     VPC_CIDR: process.env.VPC_CIDR!,
     VPC_MAX_AZS: parseInt(process.env.VPC_MAX_AZS!),
 };
-new AwsVpcStack(app, `AwsVpcStack`, {
+new AwsVpcStack(app, `${deployEnvironment}-${owner}-AwsVpcStack`, {
     ...stackProps,
-    stackName: `${deployEnvironment}-AwsVpcStack`,
+    stackName: `${deployEnvironment}-${owner}-AwsVpcStack`,
     description: `AwsVpcStack for ${appName} in ${cdkRegion} ${deployEnvironment}.`,
 });
 
