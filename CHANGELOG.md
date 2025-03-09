@@ -1,3 +1,17 @@
+## 2025-03-09 [PR#36](https://github.com/OpenWorkspace-o1/aws-vpc/pull/36)
+
+### Added
+- Added a new private subnet (`services`) to the VPC configuration.
+
+### Changed
+- Updated `aws-cdk-lib` to `2.182.0`.
+- Updated `cdk-nag` to `2.35.40`.
+- Updated `@types/node` to `22.13.10`.
+- Updated `typescript` to `~5.8.2`.
+
+### Updated
+- Bumped package version to `0.1.8`.
+
 ## 2025-01-17 [PR#33](https://github.com/OpenWorkspace-o1/aws-vpc/pull/33)
 
 ### Changed
