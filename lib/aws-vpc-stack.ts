@@ -39,7 +39,12 @@ export class AwsVpcStack extends cdk.Stack {
                     cidrMask: 24, //IPs in Range - 256
                 },
                 {
-                    name: `${props.resourcePrefix}-${vpcSubnetType}`,
+                    name: `${props.resourcePrefix}-${vpcSubnetType}-rds`,
+                    subnetType: vpcSubnetType,
+                    cidrMask: 24, //IPs in Range - 256
+                },
+                {
+                    name: `${props.resourcePrefix}-${vpcSubnetType}-services`,
                     subnetType: vpcSubnetType,
                     cidrMask: 24, //IPs in Range - 256
                 },
