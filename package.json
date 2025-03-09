@@ -1,6 +1,6 @@
 {
   "name": "aws-vpc",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "bin": {
     "aws-vpc": "bin/aws-vpc.js"
   },
