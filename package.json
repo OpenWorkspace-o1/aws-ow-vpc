@@ -1,6 +1,6 @@
 {
   "name": "aws-vpc",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "bin": {
     "aws-vpc": "bin/aws-vpc.js"
   },
@@ -15,21 +15,21 @@
     "@types/jest": "^30.0.0",
     "@types/node": "22.16.0",
     "@types/source-map-support": "^0.5.10",
-    "aws-cdk": "2.1020.0",
-    "jest": "^30.0.3",
+    "aws-cdk": "2.1020.1",
+    "jest": "^30.0.4",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.203.0",
-    "cdk-nag": "^2.36.32",
+    "aws-cdk-lib": "2.203.1",
+    "cdk-nag": "^2.36.33",
     "constructs": "^10.4.2",
     "dotenv": "^17.0.1"
   },
   "peerDependencies": {
-    "aws-cdk": "2.1020.0",
-    "aws-cdk-lib": "2.203.0",
+    "aws-cdk": "2.1020.1",
+    "aws-cdk-lib": "2.203.1",
     "constructs": "^10.4.2"
   }
 }
